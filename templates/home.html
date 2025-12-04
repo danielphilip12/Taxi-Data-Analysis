@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taxi Fare Prediction</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-info">
+    <div class="container">
+      <h1 class="display-1 text-center">Taxi Fare Prediction</h1>
+      <br />
+      <div class="row">
+        <div class="col">
+          <form
+            action="/predict"
+            method="POST"
+            class="bg-primary p-3 mb-2 rounded border border-danger"
+          >
+            <div class="row">
+              <div class="col-6">
+                <label for="distance" class="form-label text-light"
+                  >Distance (miles):</label
+                >
+                <input
+                  type="number"
+                  name="distance"
+                  class="form-control"
+                  min="0"
+                  step="any"
+                  required
+                />
+              </div>
+              <div class="col-6">
+                <label for="pickup_borough" class="form-label text-light"
+                  >Pickup Borough:</label
+                >
+                <input
+                  type="text"
+                  name="pickup_borough"
+                  class="form-control"
+                  required
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <label for="dropoff_borough" class="form-label text-light"
+                  >Dropoff Borough:</label
+                >
+                <input
+                  type="text"
+                  name="dropoff_borough"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="col-6">
+                <label for="trip_hour" class="form-label text-light"
+                  >Hour of Day (24-hour clock):</label
+                >
+                <input
+                  type="number"
+                  name="trip_hour"
+                  class="form-control"
+                  min="0"
+                  required
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <label for="trip_day_num" class="form-label text-light"
+                  >Day (0-Sunday, 6-Saturday):</label
+                >
+                <input
+                  type="number"
+                  name="trip_day_num"
+                  class="form-control"
+                  min="0"
+                  required
+                />
+              </div>
+              
+            </div>
+            <br />
+            <button type="submit" class="btn btn-success btn-lg col-12">
+              Predict
+            </button>
+          </form>
+        </div>
+        <div class="col">
+          {% if prediction_test %}
+          <div class="card bg-primary border border-danger">
+            <div class="card-body">
+              <h5 class="card-title">Prediction Result</h5>
+
+              <p
+                class="card-text display-6 bg-success p-3 mb-2 rounded text-white"
+              >
+                Fare Price: ${{prediction_test }}
+                <!-- The predicted house value is ${{ prediction_test }} -->
+              </p>
+           
+            </div>
+            <div
+              class="card-footer text-body-secondary card-subtitle text-body-secondary"
+            >
+              NOTE: Accurate within around $3.
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
