@@ -31,23 +31,74 @@ Include a data dictionary to explain the meaning of each variable or field in th
 ## Executive Summary
 
 ### Data Cleaning Steps
-Outline the steps taken to clean and preprocess the data before analysis.
+There was not too much to clean for this dataset, as there were very few missing values, so those rows were able to be dropped (aounted to 1.4% of the total number of rows)
 
 ### Key Visualizations
-Include key visualizations that highlight important aspects of the data. Use graphs, charts, or any other visual representation to make your points.
 
-#### Visualization 1: [Title]
+#### Visualization 1: [Tip with and without Outliers]
 [Description and interpretation of the first visualization.]
 
-![Visualization 1](path/to/image1.png)
+![tip](images/tip_diff.png)
 
-#### Visualization 2: [Title]
+#### Visualization 2: [Total with and without Outliers]
 [Description and interpretation of the second visualization.]
 
-![Visualization 2](path/to/image2.png)
+![total](images/total_diff.png)
+
+#### Visualization 3: [Distance with and without Outliers]
+[Description and interpretation of the second visualization.]
+
+![distance](images/distance_diff.png)
+
+### Exploratory Data Analysis
+
+Here are some visualizations of different questions I investigated in this analysis. 
+
+#### What day of the week has the highest average fare?
+
+![day_avg_fare](images/avg_fare_day.png)
+
+#### What is the average trip duration by day?
+
+![average duration by day](images/avg_dur_day_diff.png)
+
+#### Where are most customers picked up / dropped off?
+
+![pickup and dropoff common areas](images/pickup_dropoff.png)
+
+#### Which color taxi gets the highest fares?
+
+![cab color fares](images/cab_color_fare.png)
+
+####  What are the busiest times (hours)
+
+![busiest times](images/busy_times.png)
+
 
 ## Conclusions/Recommendations
-Summarize the main findings from your analysis. If applicable, provide recommendations based on the insights gained from the data.
+Using different regression modeling techniques, I found the best performing model to accurately predict `fare` within ~$3 on average. 
+
+I used the models Linear Regression, Random Forest, and K Nearest Neighbors. 
+
+Here are the best results of each. 
+
+| Model | R2 Score | RMSE Score |
+| ----- | -------- | ---------- |
+| Linear Regression | 0.89 | 3.45 |
+| Random Forest | 0.89 | 3.51 | 
+| KNN (neighbors = 17) | 0.91 | 3.3 |
+
+The best performing model was KNN, which scored highest for both R2 and RMSE. 
+
+This means that the KNN model can explain 91% of the varience in fare, and can accurately predict the fare price within $3.3 on average. 
+
+#### Linear Regression vs Random Forest R2 Scores
+
+![lr vs rf](./images/lr_rf_r2.png)
+
+#### KNNt R2 Scores
+
+![knn r2](./images/knn_r2.png)
 
 ## Additional Information
 Include any additional information, references, or resources that might be relevant for understanding the analysis.
