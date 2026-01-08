@@ -1,5 +1,11 @@
 # Taxi-Data-Analysis
 
+## Introduction
+
+This project is about analyzing and predicting NYC Taxi fares, based on infromation that you would have _before_ hailing a taxi. For instance, it will be based on the distance, pickup borough, dropoff borough, hour of the day, and the day of the week. 
+
+I used multiple machine learning algorithims to predict the fare price, and the K Nearest Neighbors (KNN) model performed the best at 17 neighbors. I determined this was the best model by utilizing a for loop to test different numbers of neighbors to see which performed the best. 
+
 ## Problem Statement
 - This dataset contains NYC taxi information such as distance travelled, fare, tip, pickup borough, dropoff borough, and more.  
 
